@@ -7,11 +7,13 @@ mongoose-dummy is an automatic dummy object generator for mongoose using only th
 
   - Latest release:
 
-        $ npm install mongoose-dummy
+        npm install mongoose-dummy
+        
 ## Usage
-- ### dummy(model, opts)
-    `model`: Mongoose schema object
-    `opts`: Generation options, where the options are in the following format:
+### dummy(model, opts)
+Generates dummy object from `model`
+- `model`: Mongoose schema object
+- `opts`: Generation options, where the options are in the following format:
 ```js
         {
           ignore: Array,
@@ -35,7 +37,10 @@ mongoose-dummy is an automatic dummy object generator for mongoose using only th
 | custom.email | String, Array, or Object | String (field to generate a random e-mails), Array of Strings (fields to generate a random e-mail), or Object `{field: String or Array of String, value: Function (custom generator function)}`
 | custom.phone | String, Array, or Object | String (field to generate a random phones), Array of Strings (fields to generate a random phone), or Object `{field: String or Array of String, value: Function (custom generator function)}`
 | custom.password | String, Array, or Object | String (field to generate a random passwords), Array of Strings (fields to generate a random password), or Object `{field: String or Array of String, value: Function (custom generator function)}`
+----------
 
+### dummy.getPaths(model)
+Helper function to extract all paths definition from model.
 ## Usage Example
 ```js
 const mongoose = require('mongoose');
