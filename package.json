@@ -8,10 +8,11 @@
   },
   "author": "Ahmed Agiza <ahmed.agiza@thed.io>",
   "dependencies": {
+    "faker": "4.1.0",
     "flat": "4.0.0",
+    "lodash": "^4.17.4",
     "mongoose": "4.7.7",
-    "uuid": "3.1.0",
-    "faker": "4.1.0"
+    "uuid": "3.1.0"
   },
   "keywords": [
     "dummy",
@@ -30,10 +31,11 @@
   "devDependencies": {
     "chai": "4.0.2",
     "chai-http": "3.0.0",
-    "mocha": "3.4.2"
+    "mocha": "3.4.2",
+    "sinon": "^4.1.2"
   },
   "bugs": {
-   "url": "https://github.com/thedgmbh/mongoose-dummy/issues/new"
+    "url": "https://github.com/thedgmbh/mongoose-dummy/issues/new"
   },
   "repository": {
     "type": "git",
