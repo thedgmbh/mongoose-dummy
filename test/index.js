@@ -10,6 +10,7 @@ const assert = chai.assert;
 const {
   getPaths,
   generateRandomModel,
+  generateNestedModel,
   generateObject
 } = require('../lib');
 
@@ -22,7 +23,7 @@ const isObjectId = mongoose.Types.ObjectId.isValid;
 
 const genderValues = ['Male', 'Female'];
 
-const schemaDefinition = new mongoose.Schema({
+const studentSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -61,14 +62,25 @@ const schemaDefinition = new mongoose.Schema({
   }
 });
 
-const model = mongoose.model('Student', schemaDefinition);
+const classSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  students: {
+    type: [studentSchema]
+  }
+});
+
+const studentModel = mongoose.model('Student', studentSchema);
+const classModel = mongoose.model('Class', classSchema);
 
 describe('mongoose-dummy', () => {
   describe('generateObject', () => {
-    it('should generate random object', async () => {
+    it('should generate random object from model object', async () => {
       const ignoredFields = ['_id','created_at', '__v'];
 
-      let randomObject = await generateObject(model, false, {
+      let randomObject = await generateObject(studentModel, {
         ignore: ignoredFields,
         returnDate: true
       });
@@ -87,26 +99,40 @@ describe('mongoose-dummy', () => {
     });
 
     it('should save generated object if save=true', async () => {
-      const createStub = sinon.stub(model, 'create').resolves();
-      const randomObject = await generateObject(model, true);
+      const createStub = sinon.stub(studentModel, 'create').resolves();
+      const randomObject = await generateObject(studentModel, {save: true});
       
       assert.isTrue(createStub.calledOnce);
       assert.isTrue(createStub.calledWith(randomObject));
 
       createStub.restore();
     });
+
+    it('should generate random object from model name', async () => {
+      let randomObject = await generateObject('Class');
+      assert.isNotNull(randomObject);
+      assert.hasAnyKeys(randomObject, ['name', 'students']);
+    });
   });
 
   describe('generateRandomModel', () => {
-    it('should use provided custom values', () => {
+    it('should use provided custom values', async () => {
       const custom = {
         name: 'Testttt'
       };
 
-      const paths = getPaths(model);
-      const randomObject = generateRandomModel(paths, {custom});
+      const paths = getPaths(studentModel);
+      const randomObject = await generateRandomModel(paths, {custom});
 
       assert.equal(randomObject.name, custom.name);
+    });
+
+    it('should include nested objects', async () => {
+      const paths = getPaths(classModel);
+      const randomObject = await generateRandomModel(paths);
+      
+      assert.isNotNull(randomObject);
+      assert.hasAnyKeys(randomObject, ['name', 'students']);
     });
   });
 });
