@@ -171,4 +171,4 @@ Licensed under MIT
 
 #### Author
 A. Agiza developed at [The D. GmbH](https://thed.io)
-Feel free to contact me [A. Agiza](mailto:ahmed.agiza@thed.io) and improve the code.
+Feel free to [Contact us](mailto:info@thed.io) and improve the code.
