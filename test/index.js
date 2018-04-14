@@ -16,7 +16,7 @@ function validateEmail(email) {
 describe('mongoose-dummy', () => {
     describe('generateRandomModel', () => {
         it('should generate random model', (done) => {
-            const ignoredFields = ['_id','created_at', '__v'];
+            const ignoredFields = ['_id', 'created_at', '__v', /detail.*_info/];
             let genderValues = ['Male', 'Female']
             let schemaDefinition = new mongoose.Schema({
                 name: {
@@ -51,6 +51,11 @@ describe('mongoose-dummy', () => {
                 parent: {
                     type: mongoose.Schema.Types.ObjectId
                 },
+                detail: {
+                    main_info: String,
+                    some_info: String,
+                    none_match: String
+                },
                 created_at: {
                     type: Date,
                     default: Date.now
@@ -65,6 +70,7 @@ describe('mongoose-dummy', () => {
             expect(randomObject).to.not.be.null;
             randomObject.name.should.be.a('string');
             randomObject.email.should.be.a('string');
+            randomObject.detail.none_match.should.be.a('string');
             validateEmail(randomObject.email).should.be.true;
             randomObject.birth_date.should.be.a('date');
             genderValues.indexOf(randomObject.gender).should.not.eql(-1);
@@ -73,6 +79,13 @@ describe('mongoose-dummy', () => {
             randomObject.results[0].should.have.property('score');
             randomObject.is_student.should.be.a('boolean');
             isObjectId(randomObject.parent).should.be.true;
+
+            // Check ignore fields
+            expect(randomObject.created_at).to.be.undefined;
+            expect(randomObject._id).to.be.undefined;
+            expect(randomObject.__v).to.be.undefined;
+            expect(randomObject.detail.main_info).to.be.undefined;
+            expect(randomObject.detail.some_info).to.be.undefined;
 
             done();
         });
