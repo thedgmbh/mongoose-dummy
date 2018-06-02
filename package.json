@@ -1,12 +1,11 @@
 {
   "name": "mongoose-dummy",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Mongoose dummy data generator",
   "main": "index.js",
   "scripts": {
     "test": "mocha test --timeout 10000"
   },
-  "author": "Ahmed Agiza <ahmed.agiza@thed.io>",
   "dependencies": {
     "flat": "4.0.0",
     "mongoose": "4.7.7",
