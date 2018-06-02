@@ -1,4 +1,4 @@
-# mongoose-dummy 1.1.0
+# mongoose-dummy 1.0.4
 
 
 mongoose-dummy is an automatic dummy object generator for mongoose using only the schema definition built for [Node.js](http://nodejs.org).
@@ -8,7 +8,7 @@ mongoose-dummy is an automatic dummy object generator for mongoose using only th
   - Latest release:
 
         npm install mongoose-dummy
-        
+
 ## Usage
 ### dummy(model, opts)
 Generates dummy object from `model`
@@ -166,8 +166,8 @@ console.log(randomObject);
     }],
     "birth_date": "2017-09-30T14:57:01.279Z",
     "is_student": true,
-    "detail": { 
-        "none_match": "Wade_Robel" 
+    "detail": {
+        "none_match": "Wade_Robel"
     }
 }*/
 ```
