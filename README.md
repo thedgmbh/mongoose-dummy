@@ -178,5 +178,4 @@ To run the test cases use `npm test`
 Licensed under MIT
 
 #### Author
-A. Agiza developed at [The D. GmbH](https://thed.io)
 Feel free to [Contact us](mailto:info@thed.io) and improve the code.
