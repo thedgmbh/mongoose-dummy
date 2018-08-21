@@ -45,6 +45,12 @@ describe('mongoose-dummy', () => {
                         course: Number
                     }
                 ],
+                subSchema: {
+                    type: new mongoose.Schema({ score: Number, name: String })
+                },
+                subSchemaArray: {
+                    type: [new mongoose.Schema({ score: Number, name: String })]
+                },
                 is_student: {
                     type: Boolean
                 },
