@@ -39,6 +39,9 @@ describe('mongoose-dummy', () => {
                     type: Object,
                     default: null
                 },
+                phone: {
+                    type: String
+                },
                 results: [
                     {
                         score: Number,
