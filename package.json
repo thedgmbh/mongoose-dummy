@@ -1,6 +1,6 @@
 {
   "name": "mongoose-dummy",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Mongoose dummy data generator",
   "main": "index.js",
   "scripts": {
@@ -32,7 +32,7 @@
     "mocha": "3.4.2"
   },
   "bugs": {
-   "url": "https://github.com/thedgmbh/mongoose-dummy/issues/new"
+    "url": "https://github.com/thedgmbh/mongoose-dummy/issues/new"
   },
   "repository": {
     "type": "git",

@@ -37,6 +37,7 @@ Generates dummy object from `model`
 | custom.email | String, Array, or Object | String (field to generate a random e-mails), Array of Strings (fields to generate a random e-mail), or Object `{field: String or Array of String, value: Function (custom generator function)}`
 | custom.phone | String, Array, or Object | String (field to generate a random phones), Array of Strings (fields to generate a random phone), or Object `{field: String or Array of String, value: Function (custom generator function)}`
 | custom.password | String, Array, or Object | String (field to generate a random passwords), Array of Strings (fields to generate a random password), or Object `{field: String or Array of String, value: Function (custom generator function)}`
+| force | Object | paths to set it to certain values |
 ----------
 
 ### dummy.getPaths(model)
