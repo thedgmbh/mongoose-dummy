@@ -1,4 +1,4 @@
-# mongoose-dummy 1.0.4
+# mongoose-dummy 1.0.9
 
 
 mongoose-dummy is an automatic dummy object generator for mongoose using only the schema definition built for [Node.js](http://nodejs.org).
