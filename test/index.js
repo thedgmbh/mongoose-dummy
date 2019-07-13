@@ -93,4 +93,41 @@ describe('mongoose-dummy', () => {
             done();
         });
     });
+
+    describe('regressions', () => {
+        it('should force setting be applied to the second property', () => {
+          let schemaDefinition = new mongoose.Schema({
+            name: {
+              type: String,
+              required: true,
+              lowercase: true,
+              trim: true
+            },
+            email: {
+              type: String
+            },
+            birth_date: {
+              type: Date
+            },
+            parent: {
+              type: mongoose.Schema.Types.ObjectId
+            }
+          });
+    
+          const parentId = '5af8a4f33f56930349d8f45b';
+          const mongooseDummy = 'mongoose-dummy';
+    
+          let model = mongoose.model('Student01', schemaDefinition);
+          let randomObject = dummy(model, {
+            returnDate: true,
+            force: {
+              parent: parentId,
+              name: mongooseDummy // does not work
+            }
+          });
+    
+          expect(randomObject.parent).to.be.equal(parentId);
+          expect(randomObject.name).to.be.equal(mongooseDummy); 
+        });
+      })
 });
