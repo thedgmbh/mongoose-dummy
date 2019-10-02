@@ -20,6 +20,8 @@ Generates dummy object from `model`
           autoDetect: Boolean,
           applyFilter: Boolean,
           returnDate: Boolean,
+          resolveRef: Function,
+          maxDepth: Number,
           custom: {
              email: [String, Array, Object],
              phone: [String, Array, Object],
@@ -33,6 +35,8 @@ Generates dummy object from `model`
 | autoDetect | Boolean | Attempt to detect e-mail, phone, or password and generate corresponding random data, defaults to true |
 | applyFilter | Boolean | Apply lowercase, uppercase, and trim filters on generated object if defined in the path |
 | returnDate | Boolean | Weather to return dates as Date or String |
+| resolveRef | Function | Function taking a schema ref as arguments, and returning the *absolute* path to its schema file |
+| maxDepth | Number | Maximum depth for recursive ref resolution. Default to `10`. |
 | custom | Object | Special generator for specified fields |
 | custom.email | String, Array, or Object | String (field to generate a random e-mails), Array of Strings (fields to generate a random e-mail), or Object `{field: String or Array of String, value: Function (custom generator function)}`
 | custom.phone | String, Array, or Object | String (field to generate a random phones), Array of Strings (fields to generate a random phone), or Object `{field: String or Array of String, value: Function (custom generator function)}`
