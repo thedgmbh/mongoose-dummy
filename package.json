@@ -1,6 +1,6 @@
 {
   "name": "mongoose-dummy",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "Mongoose dummy data generator",
   "main": "index.js",
   "scripts": {
