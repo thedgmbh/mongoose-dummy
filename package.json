@@ -29,10 +29,10 @@
   "devDependencies": {
     "chai": "4.0.2",
     "chai-http": "3.0.0",
-    "mocha": "3.4.2"
+    "mocha": "^3.4.2"
   },
   "bugs": {
-   "url": "https://github.com/thedgmbh/mongoose-dummy/issues/new"
+    "url": "https://github.com/thedgmbh/mongoose-dummy/issues/new"
   },
   "repository": {
     "type": "git",
