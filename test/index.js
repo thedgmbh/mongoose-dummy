@@ -1,16 +1,16 @@
-'use strict'
-process.env.NODE_ENV = 'test';
+"use strict";
+process.env.NODE_ENV = "test";
 
 const chai = require("chai");
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const should = chai.should();
 const expect = chai.expect;
-const dummy = require('..');
+const dummy = require("..");
 const isObjectId = mongoose.Types.ObjectId.isValid;
 
 function validateEmail(email) {
-    let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
+  let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
 }
 
 describe('mongoose-dummy', () => {
@@ -25,6 +25,10 @@ describe('mongoose-dummy', () => {
                     lowercase: true,
                     trim: true
                 },
+                uppercase: {
+                    type: String,
+                    uppercase: true
+                  },
                 email: {
                     type: String,
                 },
@@ -71,6 +75,8 @@ describe('mongoose-dummy', () => {
             })
             expect(randomObject).to.not.be.null;
             randomObject.name.should.be.a('string');
+            randomObject.uppercase.should.be.a("string");
+            randomObject.uppercase.should.equal(randomObject.uppercase.toUpperCase());
             randomObject.email.should.be.a('string');
             randomObject.detail.none_match.should.be.a('string');
             validateEmail(randomObject.email).should.be.true;
@@ -83,14 +89,14 @@ describe('mongoose-dummy', () => {
             randomObject.parent.should.equal('5af8a4f33f56930349d8f45b')
             isObjectId(randomObject.parent).should.be.true;
 
-            // Check ignore fields
-            expect(randomObject.created_at).to.be.undefined;
-            expect(randomObject._id).to.be.undefined;
-            expect(randomObject.__v).to.be.undefined;
-            expect(randomObject.detail.main_info).to.be.undefined;
-            expect(randomObject.detail.some_info).to.be.undefined;
+      // Check ignore fields
+      expect(randomObject.created_at).to.be.undefined;
+      expect(randomObject._id).to.be.undefined;
+      expect(randomObject.__v).to.be.undefined;
+      expect(randomObject.detail.main_info).to.be.undefined;
+      expect(randomObject.detail.some_info).to.be.undefined;
 
-            done();
-        });
+      done();
     });
+  });
 });
