@@ -1,16 +1,16 @@
 {
-  "name": "mongoose-dummy",
-  "version": "1.0.5",
+  "name": "@becodebg/mongoose-dummy",
+  "version": "1.0.0",
   "description": "Mongoose dummy data generator",
   "main": "index.js",
   "scripts": {
     "test": "mocha test --timeout 10000"
   },
   "dependencies": {
+    "faker": "4.1.0",
     "flat": "4.0.0",
-    "mongoose": "4.7.7",
-    "uuid": "3.1.0",
-    "faker": "4.1.0"
+    "mongoose": "^5.11.9",
+    "uuid": "3.1.0"
   },
   "keywords": [
     "dummy",
@@ -28,15 +28,7 @@
   "license": "MIT",
   "devDependencies": {
     "chai": "4.0.2",
-    "chai-http": "3.0.0",
-    "mocha": "3.4.2"
-  },
-  "bugs": {
-   "url": "https://github.com/thedgmbh/mongoose-dummy/issues/new"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/thedgmbh/mongoose-dummy.git"
-  },
-  "homepage": "https://thed.io"
+    "chai-http": "^4.3.0",
+    "mocha": "^8.2.1"
+  }
 }
