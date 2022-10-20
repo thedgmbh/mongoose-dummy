@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "flat": "4.0.0",
-    "mongoose": "4.7.7",
+    "mongoose": "4.13.21",
     "uuid": "3.1.0",
     "faker": "4.1.0"
   },
