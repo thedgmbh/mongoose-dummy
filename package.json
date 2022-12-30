@@ -7,7 +7,7 @@
     "test": "mocha test --timeout 10000"
   },
   "dependencies": {
-    "flat": "4.0.0",
+    "flat": "5.0.1",
     "mongoose": "4.7.7",
     "uuid": "3.1.0",
     "faker": "4.1.0"
